@@ -1,0 +1,67 @@
+
+{% extends "layout1.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+     
+    <script type="text/javascript">
+      var m={{ messages|safe }};
+      for(var i=0;i<m.length;i++)
+      {
+        alert(m[i]);
+      }
+    </script>
+    
+
+
+  {% endif %}
+{% endwith %}
+
+
+
+<style>
+ 
+body  
+{  
+background-image: url({{ url_for('static', filename='new4.jpeg') }})  
+} 
+</style>
+
+
+
+
+<h1>Create Here</h1>
+  <form class="form-horizontal" action="{{url_for('new')}}" method="POST">
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="">Title:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title">
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="">Content:</label>
+    <div class="col-sm-6">
+      <textarea class="form-control" id="content" rows="10" cols="10" name="content" placeholder="Enter Content"> </textarea>
+    </div>
+    </div>
+    
+    <div class="form-group">
+    <label class="control-label col-sm-2" for="">Tags:</label>
+    <div class="col-sm-6">
+      <textarea class="form-control" id="tags" name="tags" placeholder="Enter Tags"></textarea>
+  </div>
+
+    </div>
+    
+  
+   <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Submit</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

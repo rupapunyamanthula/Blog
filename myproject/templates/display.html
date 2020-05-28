@@ -1,0 +1,66 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+     
+    <script type="text/javascript">
+      var m={{ messages|safe }}
+      for(var i=0;i<m.length;i++)
+      {
+        alert(m[i]);
+      }
+    </script>
+    
+
+
+  {% endif %}
+{% endwith %}
+
+<html>
+<head>
+  
+<style>
+  body  
+{  
+background-image: url({{ url_for('static', filename='black.jpg') }});
+
+}  
+
+div.b {
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  color:#9A33FF;
+}
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #9A33FF;
+}
+
+
+p.dotted {border-style: dotted;border-width: 2px;width: 800px;}
+
+</style>
+</head>
+
+<body>
+<center>
+<div class="b"><h1><b>{{data[0][1]}}</b></h1></div>
+<p class="dotted" style="text-align:center; color:White"><b>{{data[0][2]}}</b>b</p>
+<p style="color:White" style="text-align:center;"><b>#{{data[0][3]}}</b></p>
+<h3 style="color:White"><b>Thankyou for Reading!!</b></h3>
+<p style="color:White" style="text-align:center;">&emsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Yours-{{data[0][6]}}</b></p>
+<form>
+
+  <input type="button" value="Go back!" onclick="history.back()">
+</form>
+</center>
+</body>
+
+
+
+
+{% endblock %}
